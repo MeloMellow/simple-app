@@ -1,14 +1,18 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { User, Book } from './entity'
+import { Book, User } from "./entity"
+
+function parseNumber(str: String | string | any): number{
+    return parseInt(str)
+}
 
 const AppDataSource = new DataSource({
     type: "mysql",
-    host: "localhost",
-    port: 3306,
-    username: "root",
-    password: "admin",
-    database: "simple-app",
+    host: process.env.HOST_DB || "localhost",
+    port: parseInt(process.env.PORT_DB || '3306'),
+    username: process.env.USER_DB || "root",
+    password: process.env.PASSWORD_DB ||  "admin",
+    database: process.env.DB_NAME || "simple-app",
     entities: [User, Book],
     synchronize: true,
     logging: false,
@@ -17,10 +21,5 @@ const AppDataSource = new DataSource({
 // to initialize initial connection with the database, register all entities
 // and "synchronize" database schema, call "initialize()" method of a newly created database
 // once in your application bootstrap
-AppDataSource.initialize()
-    .then(() => {
-        // here you can start to work with your database
-    })
-    .catch((error) => console.log(error))
 
 export { AppDataSource }

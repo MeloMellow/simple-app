@@ -1,6 +1,6 @@
-type user = {
+export type User = {
   id?: String
   name: String
   email: String
-  password: String
+  hashedPassword: String
 }

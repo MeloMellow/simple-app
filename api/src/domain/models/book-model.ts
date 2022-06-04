@@ -1,4 +1,5 @@
-type book = {
+export type Book = {
+  id?: String
   userId: String
   title: String
   description: String
