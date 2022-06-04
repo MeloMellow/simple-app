@@ -4,7 +4,8 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts"
+    "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
   },
   "keywords": [],
   "author": "Rafael Melo",

@@ -22,3 +22,5 @@ AppDataSource.initialize()
         // here you can start to work with your database
     })
     .catch((error) => console.log(error))
+
+export { AppDataSource }

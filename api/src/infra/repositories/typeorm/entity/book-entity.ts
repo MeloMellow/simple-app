@@ -15,6 +15,6 @@ export class Book {
     @Column({ type: 'timestamp' })
     date: Date
 
-    @ManyToOne(type => User, user => user.books) users: User;
+    @ManyToOne(type => User, user => user.books) user: User;
 
 }
