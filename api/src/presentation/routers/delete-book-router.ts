@@ -1,5 +1,30 @@
-//verificar se o usuario tem permissão para deletar o livro:
-//verificar se o id do usuario corresponde ao id do livro:
-//buscar o livro no banco de dados e comaprar os ids
+import { MissingParamError } from "../../utils/errors"
+import { IHttpResponse, HttpResponse } from "../http-response"
+import { IHttpRequest } from "../http-request"
+import { IDeleteBookByBookIdUseCase } from "../../domain/usecases/book"
 
-//faz a leitura do livro
+
+export default class DeleteBookRouter {
+  constructor (private readonly deleteBookByBookIdUseCase: IDeleteBookByBookIdUseCase){}
+
+  async route (httpRequest: IHttpRequest): Promise<IHttpResponse>{
+    try {
+      const userId = httpRequest.body.authorization.userId
+      const bookId = httpRequest.params.id
+      if (!userId) {
+        return HttpResponse.serverError()
+      }
+      if (!bookId) {
+        return HttpResponse.badRequest(new MissingParamError('bookId'))
+      }
+      const response = await this.deleteBookByBookIdUseCase.delete(userId, bookId)
+      if (!response) {
+        return HttpResponse.forbiddenError()
+      }
+      return HttpResponse.ok({})
+    } catch (error) {
+      // console.log(error)
+      return HttpResponse.serverError()
+    }
+  }
+}
