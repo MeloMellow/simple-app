@@ -1,7 +1,7 @@
 export type Book = {
-  id?: String
-  userId: String
-  title: String
-  description: String
+  id?: string
+  userId: string
+  title: string
+  description: string
   date: Date
 }
