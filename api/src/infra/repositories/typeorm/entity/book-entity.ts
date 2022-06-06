@@ -4,7 +4,7 @@ import { UserEntity } from './user-entity'
 @Entity({ name: 'book' })
 export class BookEntity {
     @PrimaryGeneratedColumn("uuid")
-    id: number
+    id: string
 
     @Column()
     title: string

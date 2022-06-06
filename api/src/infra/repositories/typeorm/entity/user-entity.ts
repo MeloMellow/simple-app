@@ -4,7 +4,7 @@ import { BookEntity } from './book-entity'
 @Entity({ name: 'user' })
 export class UserEntity {
     @PrimaryGeneratedColumn("uuid")
-    id: number
+    id: string
 
     @Column()
     name: string
@@ -14,7 +14,7 @@ export class UserEntity {
 
     @Column()
     password: string
-
+    
     @OneToMany(type => BookEntity, book => book.user) books: BookEntity[];
-
+    
 }
