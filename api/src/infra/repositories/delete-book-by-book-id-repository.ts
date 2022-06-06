@@ -1,4 +1,4 @@
 
 export interface IDeleteBookByBookIdRepository{
-  delete(bookId: String): Promise<boolean>
+  delete(bookId: String): Promise<boolean | null>
 }
