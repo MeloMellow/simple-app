@@ -5,10 +5,11 @@ import EmailValidator from "../../utils/email-validator"
 import { IHttpRequest } from "../http-request"
 
 
-module.exports = class LoginRouter {
-  constructor (private readonly authUseCase: IAuthUserUseCase, private readonly emailValidator: EmailValidator) {
-
-  }
+export default class LoginRouter {
+  constructor (
+    private readonly authUseCase: IAuthUserUseCase, 
+    private readonly emailValidator: EmailValidator) 
+  {}
 
   async route (httpRequest: IHttpRequest): Promise<IHttpResponse>{
     try {

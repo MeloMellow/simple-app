@@ -1,5 +1,10 @@
 import { User } from "../../models"
 
+export type ICreateUserUseCaseParam = {
+  name: string
+  email: string
+  password: string
+}
 export interface ICreateUserUseCase{
-  create(name: string, email: String, password: String): Promise<User | null>
+  create(createUserUseCaseParam: ICreateUserUseCaseParam): Promise<User | null>
 }

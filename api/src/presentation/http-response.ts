@@ -1,4 +1,4 @@
-import { UnauthorizedError, ServerError, ForbiddenError } from './errors'
+import { UnauthorizedError, ServerError, ForbiddenError, ConflictError } from './errors'
 
 export interface IHttpResponse{
   statusCode: number
@@ -30,6 +30,13 @@ export class HttpResponse {
     return {
       statusCode: 403,
       body: { error: new ForbiddenError().message }
+    }
+  }
+
+  static conflictError (): IHttpResponse {
+    return {
+      statusCode: 409,
+      body: { error: new ConflictError().message }
     }
   }
 

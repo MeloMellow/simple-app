@@ -1,7 +1,7 @@
 import express from 'express'
 
+import { HttpResponse } from '../../presentation/http-response'
 import TokenValidator from '../../utils/token-validator'
-import HttpResponse from '../../presentation/http-response'
 
 export default function contentTypeMiddleware(req: express.Request, res: express.Response, next: express.NextFunction) {
   const tokenValidator = new TokenValidator()
