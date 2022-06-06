@@ -1,16 +1,22 @@
 import jwt from 'jsonwebtoken'
+import { User } from '../domain/models'
 import { MissingParamError } from './errors'
 
-export default class TokenGenerator {
+export default class TokenValidator {
   private secret?: string
   constructor (secret?: string) {
     this.secret = secret || process.env.JWT_SECRET
   }
 
-  generate (userId: String, name: string, email: string): string {
+  validate (token: string): {} | null {
     if (!this.secret) {
       throw new MissingParamError('secret')
     }
-    return jwt.sign({ userId, name, email }, this.secret)
+    try {
+      const decoded = jwt.verify(token, this.secret)
+      return decoded
+    } catch(err) {
+      return null
+    }
   }
 }

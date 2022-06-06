@@ -1,6 +1,6 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { Book, User } from "./entity"
+import { BookEntity, UserEntity } from "./entity"
 
 function parseNumber(str: String | string | any): number{
     return parseInt(str)
@@ -13,7 +13,7 @@ const AppDataSource = new DataSource({
     username: process.env.USER_DB || "root",
     password: process.env.PASSWORD_DB ||  "admin",
     database: process.env.DB_NAME || "simple-app",
-    entities: [User, Book],
+    entities: [UserEntity, BookEntity],
     synchronize: true,
     logging: false,
 })

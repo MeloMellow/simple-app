@@ -1,5 +1,5 @@
 import { Book } from "../../models"
 
 export interface IReadBookByBookIdUseCase{
-  read(bookId: String): Promise<Book | null>
+  read(userId: String, bookId: String): Promise<Book | null>
 }

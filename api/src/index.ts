@@ -1,6 +1,6 @@
 import { DataSource, Repository } from 'typeorm'
 import { AppDataSource } from './infra/repositories/typeorm/data-source'
-import { User, Book } from './infra/repositories/typeorm/entity'
+import { UserEntity, BookEntity } from './infra/repositories/typeorm/entity'
 
 
 // async function execute() {
@@ -41,10 +41,10 @@ import { User, Book } from './infra/repositories/typeorm/entity'
 //     })
 
 class Test{
-  async func(AppDataSource: DataSource): Promise<User | null>{
+  async func(AppDataSource: DataSource): Promise<UserEntity | null>{
     const response = await AppDataSource.initialize()
-    .then(async (): Promise<User | null> => {
-      let userRepository = AppDataSource.getRepository(User)
+    .then(async (): Promise<UserEntity | null> => {
+      let userRepository = AppDataSource.getRepository(UserEntity)
       const user = await userRepository.findOneBy({
         name: 'Rafael',
       })
