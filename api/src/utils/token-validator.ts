@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken'
-import { User } from '../domain/models'
 import { MissingParamError } from './errors'
 
 export default class TokenValidator {

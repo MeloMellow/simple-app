@@ -1,6 +1,6 @@
-import { DataSource, Repository } from 'typeorm'
-import { AppDataSource } from './infra/repositories/typeorm/data-source'
-import { UserEntity, BookEntity } from './infra/repositories/typeorm/entity'
+// import { DataSource, Repository } from 'typeorm'
+// import { AppDataSource } from './infra/repositories/typeorm/data-source'
+// import { UserEntity, BookEntity } from './infra/repositories/typeorm/entity'
 
 
 // async function execute() {
@@ -40,23 +40,31 @@ import { UserEntity, BookEntity } from './infra/repositories/typeorm/entity'
 //       console.log(user)
 //     })
 
-class Test{
-  async func(AppDataSource: DataSource): Promise<UserEntity | null>{
-    const response = await AppDataSource.initialize()
-    .then(async (): Promise<UserEntity | null> => {
-      let userRepository = AppDataSource.getRepository(UserEntity)
-      const user = await userRepository.findOneBy({
-        name: 'Rafael',
-      })
-      return user
-    })
-    .catch((error) => console.log(error)) || null
-    return response
-  }
-}
-async function app(){
-  const test = new Test()
-  const user = await test.func(AppDataSource)
-  console.log(user)
-}
-app()
+// class Test{
+//   async func(AppDataSource: DataSource): Promise<UserEntity | null>{
+//     const response = await AppDataSource.initialize()
+//     .then(async (): Promise<UserEntity | null> => {
+//       let userRepository = AppDataSource.getRepository(UserEntity)
+//       const user = await userRepository.findOneBy({
+//         name: 'Rafael',
+//       })
+//       return user
+//     })
+//     .catch((error) => console.log(error)) || null
+//     return response
+//   }
+// }
+// async function app(){
+//   const test = new Test()
+//   const user = await test.func(AppDataSource)
+//   console.log(user)
+// }
+// app()
+
+import 'dotenv/config'
+
+import app from './express'
+
+app.listen(process.env.PORT || 3434, () => {
+  console.log(`server running at http://localhost:${process.env.PORT || 3434}`)
+})

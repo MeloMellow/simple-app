@@ -1,28 +1,39 @@
-import { UnauthorizedError, ServerError } from './errors'
+import { UnauthorizedError, ServerError, ForbiddenError } from './errors'
 
-module.exports = class HttpResponse {
-  static badRequest (error: Error) {
+export interface IHttpResponse{
+  statusCode: number
+  body: {} | string
+}
+export class HttpResponse {
+  static badRequest (error: Error): IHttpResponse {
     return {
       statusCode: 400,
       body: { error: error.message }
     }
   }
 
-  static serverError () {
+  static serverError (): IHttpResponse {
     return {
       statusCode: 500,
       body: { error: new ServerError().message }
     }
   }
 
-  static anauthorizedError () {
+  static unauthorizedError (): IHttpResponse {
     return {
       statusCode: 401,
       body: { error: new UnauthorizedError().message }
     }
   }
 
-  static ok (body: any) {
+  static forbiddenError (): IHttpResponse {
+    return {
+      statusCode: 403,
+      body: { error: new ForbiddenError().message }
+    }
+  }
+
+  static ok (body: {} | string): IHttpResponse {
     return {
       statusCode: 200,
       body
