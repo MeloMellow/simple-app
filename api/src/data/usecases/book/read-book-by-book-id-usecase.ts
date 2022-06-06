@@ -1,6 +1,6 @@
 import { Book } from "../../../domain/models"
+import { IReadBookByBookIdRepository } from "../../../domain/repositories/read-book-by-book-id-repository"
 import { IReadBookByBookIdUseCase } from "../../../domain/usecases/book"
-import { IReadBookByBookIdRepository } from "../../../infra/repositories/read-book-by-book-id-repository"
 import { MissingParamError } from "../../../utils/errors"
 
 export default class DeleteBookByBookId implements IReadBookByBookIdUseCase{

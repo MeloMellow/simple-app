@@ -1,5 +1,5 @@
+import { ILoadUserByEmailRepository } from "../../../domain/repositories/load-user-by-email-repository"
 import { AuthUserUseCaseResponse, IAuthUserUseCase } from "../../../domain/usecases/user"
-import { ILoadUserByEmailRepository } from "../../../infra/repositories/load-user-by-email-repository"
 import Encrypter from "../../../utils/encrypter"
 import { MissingParamError } from "../../../utils/errors"
 import TokenGenerator from "../../../utils/token-generator"

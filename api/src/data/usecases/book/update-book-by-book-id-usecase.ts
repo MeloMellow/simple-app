@@ -1,8 +1,8 @@
 import { Book } from "../../../domain/models"
 import { IUpdateBookByBookIdUseCase } from "../../../domain/usecases/book"
-import { IReadBookByBookIdRepository } from "../../../infra/repositories/read-book-by-book-id-repository"
-import { IUpdateBookRepository } from "../../../infra/repositories/update-book-repository"
+import { IUpdateBookRepository } from "../../../domain/repositories/update-book-repository"
 import { MissingParamError } from "../../../utils/errors"
+import { IReadBookByBookIdRepository } from "../../../domain/repositories/read-book-by-book-id-repository"
 
 export default class UpdateBookByBookIdUseCase implements IUpdateBookByBookIdUseCase{
   constructor (

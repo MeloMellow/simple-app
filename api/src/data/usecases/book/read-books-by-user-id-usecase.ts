@@ -1,6 +1,6 @@
 import { Book } from "../../../domain/models"
+import { IReadBooksByUserIdRepository } from "../../../domain/repositories/read-books-by-user-id-repository"
 import { IReadBooksByUserIdUseCase } from "../../../domain/usecases/book"
-import { IReadBooksByUserIdRepository } from "../../../infra/repositories/read-books-by-user-id-repository"
 import { MissingParamError } from "../../../utils/errors"
 
 export default class ReadBooksByUserIdUseCase implements IReadBooksByUserIdUseCase{

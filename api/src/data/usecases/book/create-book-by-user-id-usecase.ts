@@ -1,6 +1,6 @@
+import { ICreateBookRepository } from "../../../domain/repositories/create-book-repository"
 import { Book } from "../../../domain/models"
 import { ICreateBookByUserIdUseCase } from "../../../domain/usecases/book"
-import { ICreateBookRepository } from "../../../infra/repositories/create-book-repository"
 import { MissingParamError } from "../../../utils/errors"
 
 export default class CreateBookByUserId implements ICreateBookByUserIdUseCase{

@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm"
 import { BookEntity } from './book-entity'
 
-@Entity()
+@Entity({ name: 'user' })
 export class UserEntity {
     @PrimaryGeneratedColumn("uuid")
     id: number
@@ -15,6 +15,6 @@ export class UserEntity {
     @Column()
     password: string
 
-    @OneToMany(type => Book, book => book.user) books: Book[];
+    @OneToMany(type => BookEntity, book => book.user) books: BookEntity[];
 
 }

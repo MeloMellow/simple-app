@@ -1,6 +1,6 @@
 import { User } from "../../../domain/models"
+import { ILoadUserByEmailRepository } from "../../../domain/repositories/load-user-by-email-repository"
 import { ILoadUserByEmailUseCase } from "../../../domain/usecases/user"
-import { ILoadUserByEmailRepository } from "../../../infra/repositories/load-user-by-email-repository"
 import { MissingParamError } from "../../../utils/errors"
 
 export default class LoadUserByEmailUseCase implements ILoadUserByEmailUseCase {

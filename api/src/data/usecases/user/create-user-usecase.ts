@@ -1,6 +1,6 @@
 import { User } from "../../../domain/models"
+import { ICreateUserRepository } from "../../../domain/repositories/create-user-repository"
 import { ICreateUserUseCase, ICreateUserUseCaseParam } from "../../../domain/usecases/user"
-import { ICreateUserRepository } from "../../../infra/repositories/create-user-repository"
 import Encrypter from "../../../utils/encrypter"
 import { MissingParamError } from "../../../utils/errors"
 

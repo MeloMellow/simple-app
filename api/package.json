@@ -6,7 +6,8 @@
    "scripts": {
       "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
       "typeorm": "typeorm-ts-node-commonjs",
-      "start": "ts-node src/index.ts"
+      "start": "ts-node src/index.ts",
+      "build": "npx tsc"
    },
    "keywords": [],
    "author": "Rafael Melo",
