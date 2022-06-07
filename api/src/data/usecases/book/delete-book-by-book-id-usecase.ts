@@ -3,7 +3,7 @@ import { IReadBookByBookIdRepository } from "../../../domain/repositories/read-b
 import { IDeleteBookByBookIdUseCase } from "../../../domain/usecases/book"
 import { MissingParamError } from "../../../utils/errors"
 
-export default class DeleteBookByBookId implements IDeleteBookByBookIdUseCase{
+export default class DeleteBookByBookIdUseCase implements IDeleteBookByBookIdUseCase{
   constructor (
     private readonly deleteBookByBookIdRepository: IDeleteBookByBookIdRepository,
     private readonly readBookByBookIdRepository: IReadBookByBookIdRepository) 

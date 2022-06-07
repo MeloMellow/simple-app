@@ -3,7 +3,7 @@ import { IReadBookByBookIdRepository } from "../../../domain/repositories/read-b
 import { IReadBookByBookIdUseCase } from "../../../domain/usecases/book"
 import { MissingParamError } from "../../../utils/errors"
 
-export default class DeleteBookByBookId implements IReadBookByBookIdUseCase{
+export default class ReadBookByBookIdUseCase implements IReadBookByBookIdUseCase{
   constructor (private readonly readBookByBookIdRepository: IReadBookByBookIdRepository) {}
 
   async read (userId: string, bookId: string): Promise<Book | null>{

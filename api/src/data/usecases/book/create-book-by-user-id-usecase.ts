@@ -3,7 +3,7 @@ import { Book } from "../../../domain/models"
 import { ICreateBookByUserIdUseCase } from "../../../domain/usecases/book"
 import { MissingParamError } from "../../../utils/errors"
 
-export default class CreateBookByUserId implements ICreateBookByUserIdUseCase{
+export default class CreateBookByUserIdUseCase implements ICreateBookByUserIdUseCase{
   constructor (private readonly createBookRepository: ICreateBookRepository) {}
 
   async create (book: Book): Promise<Book | null>{

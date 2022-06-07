@@ -15,7 +15,10 @@ export class ExpressMiddlewareAdapter {
         body: {}
       }
       const middlewareCheck = await middleware.route(httpRequest, httpResponse)
-      if(middleware){
+      req.headers = httpRequest.headers
+      req.body = httpRequest.headers
+      req.params = httpRequest.params
+      if(middlewareCheck){
         next()
       }else{
         res.status(httpResponse.statusCode).json(httpResponse.body)

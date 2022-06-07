@@ -1,13 +1,13 @@
 import { Book } from "../../../domain/models"
 import { IUpdateBookByBookIdUseCase } from "../../../domain/usecases/book"
-import { IUpdateBookRepository } from "../../../domain/repositories/update-book-repository"
+import { IUpdateBookByBookIdRepository } from "../../../domain/repositories/update-book-repository"
 import { MissingParamError } from "../../../utils/errors"
 import { IReadBookByBookIdRepository } from "../../../domain/repositories/read-book-by-book-id-repository"
 
 export default class UpdateBookByBookIdUseCase implements IUpdateBookByBookIdUseCase{
   constructor (
     private readonly readBookByBookIdRepository: IReadBookByBookIdRepository,
-    private readonly updateBookRepository: IUpdateBookRepository) 
+    private readonly updateBookRepository: IUpdateBookByBookIdRepository) 
   {}
 
   async update (userId: string, book: Book): Promise<Book | null>{
