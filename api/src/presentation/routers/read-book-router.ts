@@ -2,9 +2,10 @@ import { MissingParamError } from "../../utils/errors"
 import { IHttpResponse, HttpResponse } from "../http-response"
 import { IHttpRequest } from "../http-request"
 import { IReadBookByBookIdUseCase } from "../../domain/usecases/book"
+import { IRouterProtocol } from "../protocols/router-protocol"
 
 
-export default class ReadBookRouter {
+export default class ReadBookRouter implements IRouterProtocol{
   constructor (private readonly readBookByBookIdUseCase: IReadBookByBookIdUseCase){}
 
   async route (httpRequest: IHttpRequest): Promise<IHttpResponse>{

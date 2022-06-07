@@ -2,9 +2,10 @@ import { MissingParamError } from "../../utils/errors"
 import { IHttpResponse, HttpResponse } from "../http-response"
 import { IHttpRequest } from "../http-request"
 import { IDeleteBookByBookIdUseCase } from "../../domain/usecases/book"
+import { IRouterProtocol } from "../protocols/router-protocol"
 
 
-export default class DeleteBookRouter {
+export default class DeleteBookRouter implements IRouterProtocol{
   constructor (private readonly deleteBookByBookIdUseCase: IDeleteBookByBookIdUseCase){}
 
   async route (httpRequest: IHttpRequest): Promise<IHttpResponse>{

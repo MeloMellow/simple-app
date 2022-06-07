@@ -3,9 +3,10 @@ import { IHttpResponse, HttpResponse } from "../http-response"
 import EmailValidator from "../../utils/email-validator"
 import { IHttpRequest } from "../http-request"
 import { ICreateUserUseCase } from "../../domain/usecases/user/index"
+import { IRouterProtocol } from "../protocols/router-protocol"
 
 
-export default class SignupRouter {
+export default class SignupRouter implements IRouterProtocol{
   constructor (
     private readonly createUserUseCase: ICreateUserUseCase, 
     private readonly emailValidator: EmailValidator) 

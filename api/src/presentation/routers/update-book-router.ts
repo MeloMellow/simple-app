@@ -3,9 +3,10 @@ import { IHttpResponse, HttpResponse } from "../http-response"
 import { IHttpRequest } from "../http-request"
 import { IUpdateBookByBookIdUseCase } from "../../domain/usecases/book"
 import { Book } from "../../domain/models"
+import { IRouterProtocol } from "../protocols/router-protocol"
 
 
-export default class UpdateBookRouter {
+export default class UpdateBookRouter implements IRouterProtocol{
   constructor (private readonly updateBookByBookIdUseCase: IUpdateBookByBookIdUseCase){}
 
   async route (httpRequest: IHttpRequest): Promise<IHttpResponse>{

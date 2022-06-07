@@ -3,9 +3,10 @@ import { IHttpResponse, HttpResponse } from "../http-response"
 import { IHttpRequest } from "../http-request"
 import { ICreateBookByUserIdUseCase } from "../../domain/usecases/book"
 import { Book } from "../../domain/models"
+import { IRouterProtocol } from "../protocols/router-protocol"
 
 
-export default class CreateBookRouter {
+export default class CreateBookRouter implements IRouterProtocol{
   constructor (private readonly createBookByUserIdUseCase: ICreateBookByUserIdUseCase){}
 
   async route (httpRequest: IHttpRequest): Promise<IHttpResponse>{
