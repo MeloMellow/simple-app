@@ -1,5 +1,5 @@
 import { User } from "../models";
 
 export interface ILoadUserByEmailRepository{
-  load(email: String): Promise<User | null>
+  load(email: string): Promise<User | null>
 }
