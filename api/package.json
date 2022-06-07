@@ -1,36 +1,44 @@
 {
-   "name": "api",
-   "version": "1.0.0",
-   "description": "",
-   "main": "lib/index.js",
-   "scripts": {
-      "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
-      "typeorm": "typeorm-ts-node-commonjs",
-      "start": "ts-node src/index.ts",
-      "build": "npx tsc"
-   },
-   "keywords": [],
-   "author": "Rafael Melo",
-   "license": "ISC",
-   "devDependencies": {
-      "@tsconfig/node16": "^1.0.2",
-      "@types/node": "^16.11.10",
-      "@types/validator": "^13.7.3",
-      "ts-node": "10.7.0",
-      "typescript": "4.5.2"
-   },
-   "dependencies": {
-      "@types/bcrypt": "^5.0.0",
-      "@types/express": "^4.17.13",
-      "@types/jsonwebtoken": "^8.5.8",
-      "bcrypt": "^5.0.1",
-      "dotenv": "^16.0.1",
-      "express": "^4.18.1",
-      "jsonwebtoken": "^8.5.1",
-      "mysql": "^2.18.1",
-      "pg": "^8.4.0",
-      "reflect-metadata": "^0.1.13",
-      "typeorm": "0.3.6",
-      "validator": "^13.7.0"
-   }
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "start": "ts-node src/index.ts",
+    "build": "npx tsc",
+    "prepare": "cd .. && husky install api/.husky"
+  },
+  "keywords": [],
+  "author": "Rafael Melo",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/node": "^16.11.10",
+    "@types/prettier": "^2.6.3",
+    "@types/validator": "^13.7.3",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.0",
+    "prettier": "^2.6.2",
+    "ts-node": "10.7.0",
+    "typescript": "4.5.2"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "pg": "^8.4.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.3.6",
+    "validator": "^13.7.0"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
+  }
 }
