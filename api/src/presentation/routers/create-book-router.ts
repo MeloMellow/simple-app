@@ -37,7 +37,7 @@ export default class CreateBookRouter implements IRouterProtocol{
       }
       return HttpResponse.ok(book)
     } catch (error) {
-      // console.log(error)
+      console.log(error)
       return HttpResponse.serverError()
     }
   }

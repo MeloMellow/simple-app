@@ -24,7 +24,7 @@ export default class DeleteBookRouter implements IRouterProtocol{
       }
       return HttpResponse.ok({})
     } catch (error) {
-      // console.log(error)
+      console.log(error)
       return HttpResponse.serverError()
     }
   }

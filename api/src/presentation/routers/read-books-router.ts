@@ -19,7 +19,7 @@ export default class ReadBooksRouter implements IRouterProtocol{
       }
       return HttpResponse.ok(books)
     } catch (error) {
-      // console.log(error)
+      console.log(error)
       return HttpResponse.serverError()
     }
   }

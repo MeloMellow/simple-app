@@ -4,7 +4,7 @@ import { ReadBookByBookIdRepository } from "../../infra/repositories/read-book-b
 import { IRouterProtocol } from "../../presentation/protocols/router-protocol"
 import DeleteBookRouter from "../../presentation/routers/delete-book-router"
 
-export default class CreateBookRouterFactory {
+export default class DeleteBookRouterFactory {
   static make (): IRouterProtocol {
     const deleteBookByBookIdRepository = new DeleteBookByBookIdRepository()
     const readBookByBookIdRepository = new ReadBookByBookIdRepository()
