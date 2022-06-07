@@ -9,7 +9,7 @@ export default class TokenValidator {
 
   validate (token: string): {} | null {
     if (!this.secret) {
-      throw new MissingParamError('secret')
+      throw new MissingParamError('JWT_SECRET')
     }
     try {
       const decoded = jwt.verify(token, this.secret)

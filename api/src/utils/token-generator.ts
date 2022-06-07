@@ -9,7 +9,7 @@ export default class TokenGenerator {
 
   generate (userId: String, name: string, email: string): string {
     if (!this.secret) {
-      throw new MissingParamError('jwtSecret')
+      throw new MissingParamError('JWT_SECRET')
     }
     return jwt.sign({ userId, name, email }, this.secret)
   }
