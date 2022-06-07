@@ -34,7 +34,7 @@ export default class LoginRouter implements IRouterProtocol{
         email: authUserUseCaseResponse.user.email 
       })
     } catch (error) {
-      // console.log(error)
+      console.log(error)
       return HttpResponse.serverError()
     }
   }

@@ -21,7 +21,7 @@ export default class AuthUserUseCase implements IAuthUserUseCase {
     const user = await this.loadUserByEmailRepository.load(email)
     const isValid = user && await this.encrypter.compare(password, user.hashedPassword)
     if (isValid && user.id) {
-      const accessToken = await this.tokenGenerator.generate(user.id, user.name, user.email)
+      const accessToken = this.tokenGenerator.generate(user.id, user.name, user.email)
       return {accessToken, user}
     }
     return null
