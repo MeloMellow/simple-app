@@ -1,5 +1,5 @@
 import { Book } from "../models";
 
-export interface IUpdateBookRepository{
+export interface IUpdateBookByBookIdRepository{
   update(book: Book): Promise<Book | null>
 }
