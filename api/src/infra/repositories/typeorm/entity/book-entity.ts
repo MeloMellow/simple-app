@@ -1,20 +1,19 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm"
-import { UserEntity } from './user-entity'
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
+import { UserEntity } from "./user-entity";
 
-@Entity({ name: 'book' })
+@Entity({ name: "book" })
 export class BookEntity {
-    @PrimaryGeneratedColumn("uuid")
-    id: string
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-    @Column()
-    title: string
+  @Column()
+  title: string;
 
-    @Column()
-    description: string
+  @Column()
+  description: string;
 
-    @Column({ type: 'timestamp' })
-    date: Date
+  @Column({ type: "timestamp" })
+  date: Date;
 
-    @ManyToOne(type => UserEntity, user => user.books) user: UserEntity;
-
+  @ManyToOne((type) => UserEntity, (user) => user.books) user: UserEntity;
 }

@@ -1,5 +1,5 @@
-import { Book } from "../../models"
+import { Book } from "../../models";
 
-export interface IUpdateBookByBookIdUseCase{
-  update(userId: String, book: Book): Promise<Book | null>
+export interface IUpdateBookByBookIdUseCase {
+  update(userId: String, book: Book): Promise<Book | null>;
 }

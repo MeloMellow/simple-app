@@ -1,16 +1,16 @@
-import jwt from 'jsonwebtoken'
-import { MissingParamError } from './errors'
+import jwt from "jsonwebtoken";
+import { MissingParamError } from "./errors";
 
 export default class TokenGenerator {
-  private secret?: string
-  constructor (secret?: string) {
-    this.secret = secret || process.env.JWT_SECRET
+  private secret?: string;
+  constructor(secret?: string) {
+    this.secret = secret || process.env.JWT_SECRET;
   }
 
-  generate (userId: String, name: string, email: string): string {
+  generate(userId: String, name: string, email: string): string {
     if (!this.secret) {
-      throw new MissingParamError('JWT_SECRET')
+      throw new MissingParamError("JWT_SECRET");
     }
-    return jwt.sign({ userId, name, email }, this.secret)
+    return jwt.sign({ userId, name, email }, this.secret);
   }
 }

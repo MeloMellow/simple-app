@@ -27,7 +27,6 @@ export class CreateBookRepository implements ICreateBookRepository {
       await userRepository.save(userData);
       book.id = bookData.id;
     });
-
     if (!book.id) {
       return null;
     }

@@ -8,7 +8,8 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "start": "ts-node src/index.ts",
     "build": "npx tsc",
-    "prepare": "cd .. && husky install api/.husky"
+    "prepare": "cd .. && husky install api/.husky",
+    "prettier": "npx husky set .husky/pre-commit 'npx pretty-quick --staged'"
   },
   "keywords": [],
   "author": "Rafael Melo",

@@ -1,6 +1,5 @@
-
 export interface IHttpRequest {
-  headers: any
-  params: any
-  body: any
+  headers: any;
+  params: any;
+  body: any;
 }

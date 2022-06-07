@@ -1,49 +1,54 @@
-import { UnauthorizedError, ServerError, ForbiddenError, ConflictError } from './errors'
+import {
+  UnauthorizedError,
+  ServerError,
+  ForbiddenError,
+  ConflictError,
+} from "./errors";
 
-export interface IHttpResponse{
-  statusCode: number
-  body: {} | string
+export interface IHttpResponse {
+  statusCode: number;
+  body: {} | string;
 }
 export class HttpResponse {
-  static badRequest (error: Error): IHttpResponse {
+  static badRequest(error: Error): IHttpResponse {
     return {
       statusCode: 400,
-      body: { error: error.message }
-    }
+      body: { error: error.message },
+    };
   }
 
-  static serverError (): IHttpResponse {
+  static serverError(): IHttpResponse {
     return {
       statusCode: 500,
-      body: { error: new ServerError().message }
-    }
+      body: { error: new ServerError().message },
+    };
   }
 
-  static unauthorizedError (): IHttpResponse {
+  static unauthorizedError(): IHttpResponse {
     return {
       statusCode: 401,
-      body: { error: new UnauthorizedError().message }
-    }
+      body: { error: new UnauthorizedError().message },
+    };
   }
 
-  static forbiddenError (): IHttpResponse {
+  static forbiddenError(): IHttpResponse {
     return {
       statusCode: 403,
-      body: { error: new ForbiddenError().message }
-    }
+      body: { error: new ForbiddenError().message },
+    };
   }
 
-  static conflictError (): IHttpResponse {
+  static conflictError(): IHttpResponse {
     return {
       statusCode: 409,
-      body: { error: new ConflictError().message }
-    }
+      body: { error: new ConflictError().message },
+    };
   }
 
-  static ok (body: {} | string): IHttpResponse {
+  static ok(body: {} | string): IHttpResponse {
     return {
       statusCode: 200,
-      body
-    }
+      body,
+    };
   }
 }

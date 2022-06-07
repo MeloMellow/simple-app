@@ -1,5 +1,5 @@
-import { Book } from "../../models"
+import { Book } from "../../models";
 
-export interface IDeleteBookByBookIdUseCase{
-  delete(userId: String, bookId: String): Promise<boolean | null>
+export interface IDeleteBookByBookIdUseCase {
+  delete(userId: String, bookId: String): Promise<boolean | null>;
 }
