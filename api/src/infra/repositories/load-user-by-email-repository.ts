@@ -5,6 +5,9 @@ import { DataSourceOperation, UserEntity } from "./typeorm";
 
 export class LoadUserByEmailRepository implements ILoadUserByEmailRepository{
   async load(email: string): Promise<User | null> {
+    if(!email){
+      return null
+    }
     let user: User | null = null
     await DataSourceOperation(async (DataSource)=>{
       const userRepository = DataSource.getRepository(UserEntity)
