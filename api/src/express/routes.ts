@@ -1,5 +1,5 @@
 import express, { Router } from 'express'
-import authRoutes from './routes/login-routes'
+import authRoutes from './routes/user-routes'
 import authMiddleware from './middlewares/auth'
 import bookRoutes from './routes/book-routes'
 

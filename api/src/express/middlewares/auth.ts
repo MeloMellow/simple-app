@@ -1,17 +1,8 @@
 import express from 'express'
+import { ExpressMiddlewareAdapter } from '../adapters/express-middleware-adapter'
 
-import { HttpResponse } from '../../presentation/http-response'
-import TokenValidator from '../../utils/token-validator'
+import AuthMiddlewareFactory from '../factories/auth-middleware-factory'
 
-export default function contentTypeMiddleware(req: express.Request, res: express.Response, next: express.NextFunction) {
-  const tokenValidator = new TokenValidator()
-  const token = req.headers.authorization
-  if(token && tokenValidator.validate(token)){
-    const validatorResponse = tokenValidator.validate(token)
-    req.body.authorization = validatorResponse
-    next()
-  }else{
-    const response = HttpResponse.unauthorizedError()
-    res.status(response.statusCode).send(response.body)
-  }
+export default async function authMiddleware(req: express.Request, res: express.Response, next: express.NextFunction) {
+  await ExpressMiddlewareAdapter.adapt(AuthMiddlewareFactory.make())(req, res, next)
 }

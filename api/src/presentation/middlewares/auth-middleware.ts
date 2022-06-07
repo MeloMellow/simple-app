@@ -20,6 +20,7 @@ export class AuthMiddleware implements IMiddlewareProtocol{
       httpResponse.body = HttpResponse.unauthorizedError().body
       return false
     }catch(err){
+      console.log(err)
       throw HttpResponse.serverError()
     }
   }
