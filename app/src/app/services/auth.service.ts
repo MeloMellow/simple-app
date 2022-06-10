@@ -8,18 +8,34 @@ import { User } from '../models/user';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string) {
-    return this.http
-      .post<User>('/api/login', { email, password })
-      .subscribe((res) => {});
+  signin(data: SigninData) {
+    return this.http.post<User>('http://localhost:3434/api/v1/login', {
+      email: data.email,
+      password: data.password,
+    });
   }
-
+  login(user: User) {
+    localStorage.setItem('user-email', user.email);
+    localStorage.setItem('user-name', user.name);
+    localStorage.setItem('user-token', user.accessToken);
+  }
   logout() {
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
+    localStorage.removeItem('user-email');
+    localStorage.removeItem('user-name');
+    localStorage.removeItem('user-token');
   }
 
-  isLoggedOut() {
-    //return !this.isLoggedIn();
+  isLoggedin(): boolean {
+    const accessToken = localStorage.getItem('user-token');
+    if (accessToken) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
+
+export type SigninData = {
+  email?: string | null;
+  password?: string | null;
+};

@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
 import { PokeapiComponent } from './components/pokeapi/pokeapi.component';
 import { BooksComponent } from './components/books/books.component';
 import { ErrorCatchingInterceptor } from './interceptors/error-catching.interceptor';
@@ -16,17 +15,22 @@ import {
   NgbPaginationModule,
   NgbAlertModule,
 } from '@ng-bootstrap/ng-bootstrap';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent,
     PokeapiComponent,
     BooksComponent,
+    LoginFormComponent,
+    SignupFormComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NgbPaginationModule,
