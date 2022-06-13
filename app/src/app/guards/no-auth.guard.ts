@@ -4,15 +4,13 @@ import {
   CanActivate,
   Router,
   RouterStateSnapshot,
-  UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 import { UserService } from '../services/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class NoAuthGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) {}
 
   canActivate(
@@ -21,10 +19,10 @@ export class AuthGuard implements CanActivate {
   ): boolean {
     let isLoggedIn = this.userService.isLoggedin();
     if (isLoggedIn) {
-      return true;
-    } else {
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('home');
       return false;
+    } else {
+      return true;
     }
   }
 }
