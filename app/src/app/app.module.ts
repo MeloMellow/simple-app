@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { CreateBookComponent } from './components/books/modals/create-book/create-book.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     SigninFormComponent,
     SignupFormComponent,
     NavBarComponent,
+    CreateBookComponent,
   ],
   imports: [
     HttpClientModule,

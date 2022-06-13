@@ -1,12 +1,10 @@
 <div
-  class="d-flex justify-content-between flex-row container shadow bg-white border"
+  class="d-flex justify-content-between flex-row container shadow bg-white border rounded-top"
 >
   <h2 class="center my-auto">Books</h2>
-  <button class="btn btn-success float-right">
-    <i class="bi bi-plus"></i> Add
-  </button>
+  <app-create-book [books]="ELEMENT_DATA"></app-create-book>
 </div>
-<div class="mat-elevation-z8 border">
+<div class="mat-elevation-z8 border rounded-bottom">
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Num.</th>
