@@ -25,7 +25,6 @@ export class SignupFormComponent implements OnInit {
     request.subscribe({
       next: (user) => {
         notify.accountCreated();
-        this.userService.login(user);
         this.router.navigateByUrl('/signin');
       },
       error: (err) => {

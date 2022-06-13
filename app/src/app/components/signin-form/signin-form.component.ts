@@ -17,14 +17,15 @@ export class SigninFormComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
-  constructor(private authService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   async onSubmit() {
-    const request = this.authService.signin(this.loginForm.value).pipe(share());
+    const request = this.userService.signin(this.loginForm.value).pipe(share());
     notify.loading();
     request.subscribe({
       next: (user) => {
         notify.close();
+        this.userService.login(user);
         this.router.navigateByUrl('/home');
       },
       error: (err) => {

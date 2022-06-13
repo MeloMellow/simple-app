@@ -9,13 +9,5 @@ export class LoginComponent implements OnInit {
   protected page: string = 'login';
   constructor(public router: Router) {}
 
-  goToLogin() {
-    this.page = 'login';
-  }
-
-  goToSignup() {
-    this.page = 'signup';
-  }
-
   ngOnInit(): void {}
 }

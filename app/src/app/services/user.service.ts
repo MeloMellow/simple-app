@@ -36,6 +36,14 @@ export class UserService {
     localStorage.removeItem('user-token');
   }
 
+  getUser(): User {
+    return {
+      name: localStorage.getItem('user-name') || '',
+      email: localStorage.getItem('user-email') || '',
+      accessToken: localStorage.getItem('user-token') || '',
+    };
+  }
+
   isLoggedin(): boolean {
     const accessToken = localStorage.getItem('user-token');
     if (accessToken) {
