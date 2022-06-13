@@ -18,6 +18,10 @@ import {
 import { SigninFormComponent } from './components/signin-form/signin-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
     BooksComponent,
     SigninFormComponent,
     SignupFormComponent,
+    NavBarComponent,
   ],
   imports: [
     HttpClientModule,
@@ -36,6 +41,9 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
     NgbPaginationModule,
     NgbAlertModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [
     {
