@@ -1,15 +1,18 @@
 <div class="justify-content-center align-items-center mt-5">
   <h1 class="text-center">Simple App</h1>
   <div class="align-items-center card container shadow mt-4">
-    <app-login-form *ngIf="page == 'login'"></app-login-form>
-    <div class="text-center" *ngIf="page == 'login'">
+    <router-outlet></router-outlet>
+    <div class="text-center" *ngIf="router.url === '/signin'">
       <p>Don't have an account?</p>
-      <button class="btn btn-link" (click)="goToSignup()">Signup now</button>
+      <button class="btn btn-link" [routerLink]="['/signup']">
+        Signup now
+      </button>
     </div>
-    <app-login-form *ngIf="page == 'signup'"></app-login-form>
-    <div class="text-center" *ngIf="page == 'signup'">
+    <div class="text-center" *ngIf="router.url === '/signup'">
       <p>Already have an account?</p>
-      <button class="btn btn-link" (click)="goToLogin()">Login now</button>
+      <button class="btn btn-link" [routerLink]="['/signin']">
+        Signin now
+      </button>
     </div>
   </div>
 </div>

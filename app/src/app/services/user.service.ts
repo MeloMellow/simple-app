@@ -2,17 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 
+export type SigninData = {
+  email?: string | null;
+  password?: string | null;
+};
+
+export type SignupData = {
+  name?: string | null;
+  email?: string | null;
+  password?: string | null;
+};
+
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class UserService {
   constructor(private http: HttpClient) {}
 
   signin(data: SigninData) {
-    return this.http.post<User>('http://localhost:3434/api/v1/login', {
-      email: data.email,
-      password: data.password,
-    });
+    return this.http.post<User>('http://localhost:3434/api/v1/login', data);
+  }
+  signup(data: SignupData) {
+    return this.http.post<User>('http://localhost:3434/api/v1/signup', data);
   }
   login(user: User) {
     localStorage.setItem('user-email', user.email);
@@ -34,8 +45,3 @@ export class AuthService {
     }
   }
 }
-
-export type SigninData = {
-  email?: string | null;
-  password?: string | null;
-};

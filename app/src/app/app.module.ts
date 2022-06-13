@@ -15,7 +15,7 @@ import {
   NgbPaginationModule,
   NgbAlertModule,
 } from '@ng-bootstrap/ng-bootstrap';
-import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SigninFormComponent } from './components/signin-form/signin-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 
@@ -26,7 +26,7 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
     LoginComponent,
     PokeapiComponent,
     BooksComponent,
-    LoginFormComponent,
+    SigninFormComponent,
     SignupFormComponent,
   ],
   imports: [

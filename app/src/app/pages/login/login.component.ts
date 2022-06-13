@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginFormComponent } from 'src/app/components/login-form/login-form.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,7 +7,7 @@ import { LoginFormComponent } from 'src/app/components/login-form/login-form.com
 })
 export class LoginComponent implements OnInit {
   protected page: string = 'login';
-  constructor() {}
+  constructor(public router: Router) {}
 
   goToLogin() {
     this.page = 'login';

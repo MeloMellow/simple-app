@@ -9,12 +9,13 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
+import { notify } from '../swal-notification';
 
 @Injectable()
 export class ErrorCatchingInterceptor implements HttpInterceptor {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -31,30 +32,14 @@ export class ErrorCatchingInterceptor implements HttpInterceptor {
           errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
         }
         console.log(errorMsg);
-        if (error.status === 401 && !this.router.url.endsWith('/login')) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'You must be logged in to access this feature',
-            buttonsStyling: false,
-            confirmButtonText: 'Retry',
-            customClass: {
-              confirmButton: 'btn btn-primary',
-            },
-          });
-          this.authService.logout();
-          this.router.navigateByUrl('/login');
-        } else if (error.status === 401 && this.router.url.endsWith('/login')) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong with your credentials!',
-            buttonsStyling: false,
-            confirmButtonText: 'Retry',
-            customClass: {
-              confirmButton: 'btn btn-primary',
-            },
-          });
+        if (
+          error.status == 401 &&
+          !this.router.url.endsWith('/signin') &&
+          !this.router.url.endsWith('/signup')
+        ) {
+          notify.unauthorized();
+          this.userService.logout();
+          this.router.navigateByUrl('/signin');
         }
         return throwError(() => error);
       })

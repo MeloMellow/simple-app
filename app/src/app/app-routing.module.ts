@@ -1,11 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SigninFormComponent } from './components/signin-form/signin-form.component';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  {
+    path: '',
+    component: LoginComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'signin',
+        pathMatch: 'full',
+      },
+      {
+        path: 'signin',
+        component: SigninFormComponent,
+      },
+      {
+        path: 'signup',
+        component: SignupFormComponent,
+      },
+    ],
+  },
   { path: 'home', component: HomeComponent },
 ];
 

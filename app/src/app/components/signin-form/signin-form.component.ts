@@ -1,35 +1,34 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { share } from 'rxjs/operators';
-import { AuthService } from 'src/app/services/auth.service';
-import Swal from 'sweetalert2';
+import { UserService } from 'src/app/services/user.service';
+import { notify } from 'src/app/swal-notification';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css'],
-  providers: [AuthService],
+  selector: 'app-signin-form',
+  templateUrl: './signin-form.component.html',
+  styleUrls: ['./signin-form.component.css'],
 })
-export class LoginFormComponent implements OnInit {
+export class SigninFormComponent implements OnInit {
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.email]),
+    email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', Validators.required),
   });
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: UserService, private router: Router) {}
 
   async onSubmit() {
     const request = this.authService.signin(this.loginForm.value).pipe(share());
-
+    notify.loading();
     request.subscribe({
       next: (user) => {
-        this.authService.login(user);
+        notify.close();
         this.router.navigateByUrl('/home');
       },
       error: (err) => {
+        notify.wrongCredentials();
         console.log(err.status);
       },
     });
