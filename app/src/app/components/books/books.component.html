@@ -28,7 +28,13 @@
       <th mat-header-cell *matHeaderCellDef>Details</th>
       <!-- <td mat-cell *matCellDef="let element"> {{element.date.getMonth()+1}}/{{element.date.getDate()}}/{{element.date.getFullYear()}} </td> -->
       <td mat-cell *matCellDef="let element">
-        <button class="btn btn-outline-primary">
+        <button
+          class="btn btn-outline-primary"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#readBookDetailsBackdrop"
+          (click)="onBookToRead(element)"
+        >
           <i class="bi bi-card-text"></i>
         </button>
       </td>
@@ -91,3 +97,12 @@
   aria-labelledby="staticBackdropLabel"
   aria-hidden="true"
 ></app-edit-book>
+<app-book-details
+  [book]="bookToRead"
+  class="modal fade"
+  id="readBookDetailsBackdrop"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+></app-book-details>

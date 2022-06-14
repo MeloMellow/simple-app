@@ -1,1 +1,39 @@
-<p>book-details works!</p>
+<div class="modal-dialog">
+  <form class="modal-content">
+    <div class="modal-header">
+      <div>
+        <h2 class="modal-title center my-auto" id="staticBackdropLabel">
+          Book details
+        </h2>
+      </div>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form class="form px-4 mb-3 mt-3">
+        <div class="mt-3">
+          <label for="title">Title: </label>
+          <p>{{ _book?.title }}</p>
+        </div>
+        <div class="mt-3">
+          <label for="description">Description: </label>
+          <p>{{ _book?.description }}</p>
+        </div>
+
+        <div class="mt-3">
+          <label for="date">Date: </label>
+          <p>{{ getBookDateFormatted(_book?.date) }}</p>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        Close
+      </button>
+    </div>
+  </form>
+</div>

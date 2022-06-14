@@ -75,6 +75,7 @@ export class BooksComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
   bookToEdit: Book | null = null;
+  bookToRead: Book | null = null;
 
   constructor(
     private changeDetectorRefs: ChangeDetectorRef,
@@ -83,6 +84,10 @@ export class BooksComponent implements OnInit {
 
   onBookToEdit(element: Book) {
     this.bookToEdit = { ...element };
+  }
+
+  onBookToRead(element: Book) {
+    this.bookToRead = element;
   }
 
   refreshTable() {

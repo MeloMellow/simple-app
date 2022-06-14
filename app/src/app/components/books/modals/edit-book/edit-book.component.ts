@@ -54,6 +54,9 @@ export class EditBookComponent implements OnInit {
           (bookObj) => bookObj.id == book.id
         );
         if (bookToBeChanged) {
+          if (this._book) {
+            this._book.title = book.title;
+          }
           bookToBeChanged.title = book.title;
           bookToBeChanged.description = book.description;
           bookToBeChanged.date = book.date;
