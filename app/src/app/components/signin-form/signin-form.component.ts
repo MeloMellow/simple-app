@@ -4,7 +4,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { share } from 'rxjs/operators';
 import { UserService } from 'src/app/services/user.service';
-import { notify } from 'src/app/swal-notification';
 
 @Component({
   selector: 'app-signin-form',

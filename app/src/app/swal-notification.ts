@@ -139,4 +139,30 @@ export abstract class notify {
       },
     });
   }
+  static bookAdded() {
+    this.unLoad();
+    Swal.fire({
+      icon: 'success',
+      position: 'top',
+      text: 'Book added with success!',
+      buttonsStyling: false,
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+      },
+    });
+  }
+  static bookUpdated() {
+    this.unLoad();
+    Swal.fire({
+      icon: 'success',
+      position: 'top',
+      text: 'Book updated with success!',
+      buttonsStyling: false,
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+      },
+    });
+  }
 }

@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { share } from 'rxjs/internal/operators/share';
 import { Book } from 'src/app/models/book';
-import { BooksService, CreateBookData } from 'src/app/services/books.service';
+import { BooksService } from 'src/app/services/books.service';
 import { notify } from 'src/app/swal-notification';
 
 @Component({
@@ -12,6 +12,8 @@ import { notify } from 'src/app/swal-notification';
   styleUrls: ['./create-book.component.css'],
 })
 export class CreateBookComponent implements OnInit {
+  @Output() notifyParent = new EventEmitter();
+
   @Input()
   set books(book: Array<Book>) {
     this._books = book;
@@ -26,16 +28,14 @@ export class CreateBookComponent implements OnInit {
 
   constructor(public booksService: BooksService, public router: Router) {}
 
-  onSubmit() {
+  async onSubmit() {
     const request = this.booksService.create(this.bookForm.value).pipe(share());
-    notify.loading();
     request.subscribe({
       next: (book) => {
-        notify.close();
-      },
-      error: (err) => {
-        notify.wrongCredentials();
-        console.log(err.status);
+        notify.bookAdded();
+        this._books.push(book);
+        this.notifyParent.emit();
+        this.bookForm.reset();
       },
     });
   }

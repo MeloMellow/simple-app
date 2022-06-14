@@ -23,6 +23,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CreateBookComponent } from './components/books/modals/create-book/create-book.component';
+import { FormsModule } from '@angular/forms';
+import { EditBookComponent } from './components/books/modals/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { CreateBookComponent } from './components/books/modals/create-book/creat
     SignupFormComponent,
     NavBarComponent,
     CreateBookComponent,
+    EditBookComponent,
   ],
   imports: [
     HttpClientModule,
@@ -46,6 +49,7 @@ import { CreateBookComponent } from './components/books/modals/create-book/creat
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
+    FormsModule,
   ],
   providers: [
     {

@@ -8,6 +8,12 @@ export type CreateBookData = {
   description?: string | null;
   date?: Date | null;
 };
+export type UpdateBookData = {
+  id: string;
+  title?: string | null;
+  description?: string | null;
+  date?: Date | null;
+};
 @Injectable({
   providedIn: 'root',
 })
@@ -17,6 +23,12 @@ export class BooksService {
   create(data: CreateBookData) {
     return this.http.post<Book>(
       'http://localhost:3434/api/v1/auth/books',
+      data
+    );
+  }
+  update(data: UpdateBookData) {
+    return this.http.put<Book>(
+      `http://localhost:3434/api/v1/auth/books/${data.id}`,
       data
     );
   }

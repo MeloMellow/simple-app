@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Book } from 'src/app/models/book';
@@ -63,8 +69,20 @@ export class BooksComponent implements OnInit {
   ];
 
   dataSource = new MatTableDataSource<Book>(this.books);
-
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
+
+  bookToEdit: Book | null = null;
+
+  constructor(private changeDetectorRefs: ChangeDetectorRef) {}
+
+  onBookToEdit(element: Book) {
+    this.bookToEdit = { ...element };
+  }
+
+  refreshTable() {
+    this.dataSource.data = this.books;
+    this.changeDetectorRefs.detectChanges();
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

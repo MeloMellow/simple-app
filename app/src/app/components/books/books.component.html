@@ -2,7 +2,10 @@
   class="d-flex justify-content-between flex-row container shadow bg-white border rounded-top"
 >
   <h2 class="center my-auto">Books</h2>
-  <app-create-book [books]="books"></app-create-book>
+  <app-create-book
+    [books]="books"
+    (notifyParent)="refreshTable()"
+  ></app-create-book>
 </div>
 <div class="mat-elevation-z8 border rounded-bottom">
   <table mat-table [dataSource]="dataSource">
@@ -30,7 +33,16 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef>Edit</th>
       <td mat-cell *matCellDef="let element">
-        <button class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+        <!-- <app-edit-book [book]="element" [books]="books" (notifyParent)="refreshTable()" ></app-edit-book> -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#updateBookBackdrop"
+          (click)="onBookToEdit(element)"
+        >
+          <i class="bi bi-pencil"></i>
+        </button>
       </td>
     </ng-container>
 
@@ -52,3 +64,15 @@
   >
   </mat-paginator>
 </div>
+<app-edit-book
+  [book]="bookToEdit"
+  [books]="books"
+  (notifyParent)="refreshTable()"
+  class="modal fade"
+  id="updateBookBackdrop"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+</app-edit-book>
