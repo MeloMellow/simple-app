@@ -1,7 +1,16 @@
 import Swal from 'sweetalert2';
 
 export abstract class notify {
+  private static isLoading = false;
+
+  static unLoad() {
+    if (this.isLoading) {
+      this.isLoading = false;
+      Swal.close();
+    }
+  }
   static close() {
+    this.unLoad();
     Swal.close();
   }
   static loading() {
@@ -17,8 +26,10 @@ export abstract class notify {
       allowOutsideClick: false,
       showConfirmButton: false,
     });
+    this.isLoading = true;
   }
   static unauthorized() {
+    this.unLoad();
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -32,32 +43,91 @@ export abstract class notify {
     });
   }
   static wrongCredentials() {
+    this.unLoad();
     Swal.fire({
       icon: 'error',
       position: 'top',
       title: 'Oops...',
       text: 'Something went wrong with your credentials!',
       buttonsStyling: false,
-      confirmButtonText: 'Retry',
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+      },
+    });
+  }
+  static serverError() {
+    this.unLoad();
+    Swal.fire({
+      icon: 'error',
+      position: 'top',
+      title: 'Oops...',
+      text: 'Something went wrong with the server!',
+      buttonsStyling: false,
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+      },
+    });
+  }
+  static commonHttpError() {
+    this.unLoad();
+    Swal.fire({
+      icon: 'error',
+      position: 'top',
+      title: 'Oops...',
+      text: 'Something went wrong with the request!',
+      buttonsStyling: false,
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+      },
+    });
+  }
+  static noResponse() {
+    this.unLoad();
+    Swal.fire({
+      icon: 'info',
+      position: 'top',
+      title: 'Oops...',
+      text: 'The server did not respond to your request, please try again another time',
+      buttonsStyling: false,
+      confirmButtonText: 'Ok',
       customClass: {
         confirmButton: 'btn btn-primary',
       },
     });
   }
   static conflictCredentials() {
+    this.unLoad();
     Swal.fire({
       icon: 'error',
       position: 'top',
       title: 'Oops...',
       text: 'This email is not available',
       buttonsStyling: false,
-      confirmButtonText: 'Retry',
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+      },
+    });
+  }
+  static forbidden() {
+    this.unLoad();
+    Swal.fire({
+      icon: 'error',
+      position: 'top',
+      title: 'Oops...',
+      text: 'You are not authorized to access this feature',
+      buttonsStyling: false,
+      confirmButtonText: 'Ok',
       customClass: {
         confirmButton: 'btn btn-primary',
       },
     });
   }
   static accountCreated() {
+    this.unLoad();
     Swal.fire({
       icon: 'success',
       position: 'top',

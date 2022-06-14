@@ -21,12 +21,12 @@ export class CreateBookComponent implements OnInit {
   bookForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     description: new FormControl('', Validators.required),
-    date: new FormControl(new Date(), Validators.required),
+    date: new FormControl(null, Validators.required),
   });
 
   constructor(public booksService: BooksService, public router: Router) {}
 
-  onSubmit(book: CreateBookData) {
+  onSubmit() {
     const request = this.booksService.create(this.bookForm.value).pipe(share());
     notify.loading();
     request.subscribe({

@@ -17,7 +17,7 @@ export class BooksComponent implements OnInit {
     'remove',
   ];
 
-  ELEMENT_DATA: Book[] = [
+  books: Book[] = [
     {
       id: '485fj03432494325j',
       userId: '43ud98ku395u',
@@ -62,7 +62,7 @@ export class BooksComponent implements OnInit {
     },
   ];
 
-  dataSource = new MatTableDataSource<Book>(this.ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Book>(this.books);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 

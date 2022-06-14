@@ -21,16 +21,10 @@ export class SigninFormComponent implements OnInit {
 
   async onSubmit() {
     const request = this.userService.signin(this.loginForm.value).pipe(share());
-    notify.loading();
     request.subscribe({
       next: (user) => {
-        notify.close();
         this.userService.login(user);
         this.router.navigateByUrl('/home');
-      },
-      error: (err) => {
-        notify.wrongCredentials();
-        console.log(err.status);
       },
     });
   }

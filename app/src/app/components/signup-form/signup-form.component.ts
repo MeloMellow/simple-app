@@ -21,18 +21,10 @@ export class SignupFormComponent implements OnInit {
 
   async onSubmit() {
     const request = this.userService.signup(this.loginForm.value).pipe(share());
-    notify.loading();
     request.subscribe({
       next: (user) => {
         notify.accountCreated();
         this.router.navigateByUrl('/signin');
-      },
-      error: (err) => {
-        if (err.status == 409) {
-          notify.conflictCredentials();
-        } else {
-          notify.wrongCredentials();
-        }
       },
     });
   }
