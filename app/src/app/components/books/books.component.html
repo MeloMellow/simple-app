@@ -2,10 +2,14 @@
   class="d-flex justify-content-between flex-row container shadow bg-white border rounded-top"
 >
   <h2 class="center my-auto">Books</h2>
-  <app-create-book
-    [books]="books"
-    (notifyParent)="refreshTable()"
-  ></app-create-book>
+  <button
+    type="button"
+    class="btn btn-success float-right"
+    data-bs-toggle="modal"
+    data-bs-target="#createBookBackdrop"
+  >
+    <i class="bi bi-plus"></i> Add
+  </button>
 </div>
 <div class="mat-elevation-z8 border rounded-bottom">
   <table mat-table [dataSource]="dataSource">
@@ -64,6 +68,16 @@
   >
   </mat-paginator>
 </div>
+<app-create-book
+  [books]="books"
+  (notifyParent)="refreshTable()"
+  class="modal fade"
+  id="createBookBackdrop"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+></app-create-book>
 <app-edit-book
   [book]="bookToEdit"
   [books]="books"
@@ -74,5 +88,4 @@
   tabindex="-1"
   aria-labelledby="staticBackdropLabel"
   aria-hidden="true"
->
-</app-edit-book>
+></app-edit-book>

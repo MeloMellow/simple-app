@@ -1,82 +1,62 @@
-<!-- Button trigger modal -->
-<button
-  type="button"
-  class="btn btn-success float-right"
-  data-bs-toggle="modal"
-  data-bs-target="#createBookBackdrop"
->
-  <i class="bi bi-plus"></i> Add
-</button>
+<div class="modal-dialog">
+  <form class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title center my-auto" id="staticBackdropLabel">
+        Add book
+      </h2>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form class="form px-4 mb-3 mt-3" [formGroup]="bookForm">
+        <div class="mt-3">
+          <label for="title">Title: </label>
+          <input
+            id="title"
+            class="form-control mt-1"
+            placeholder="Title"
+            type="title"
+            formControlName="title"
+          />
+        </div>
+        <div class="mt-3">
+          <label for="description">Description: </label>
+          <textarea
+            id="description"
+            class="form-control mt-1"
+            placeholder="Description"
+            formControlName="description"
+          ></textarea>
+        </div>
 
-<!-- Modal -->
-<div
-  class="modal fade"
-  id="createBookBackdrop"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <form class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title center my-auto" id="staticBackdropLabel">
-          Add book
-        </h2>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form class="form px-4 mb-3 mt-3" [formGroup]="bookForm">
-          <div class="mt-3">
-            <label for="title">Title: </label>
-            <input
-              id="title"
-              class="form-control mt-1"
-              placeholder="Title"
-              type="title"
-              formControlName="title"
-            />
-          </div>
-          <div class="mt-3">
-            <label for="description">Description: </label>
-            <textarea
-              id="description"
-              class="form-control mt-1"
-              placeholder="Description"
-              formControlName="description"
-            ></textarea>
-          </div>
-
-          <div class="mt-3">
-            <label for="date">Date: </label>
-            <input
-              id="date"
-              class="form-control mt-1"
-              type="date"
-              formControlName="date"
-            />
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button
-          type="submit"
-          class="btn btn-outline-primary"
-          [disabled]="!bookForm.valid"
-          class="btn btn-success"
-          (click)="onSubmit()"
-        >
-          Add
-        </button>
-      </div>
-    </form>
-  </div>
+        <div class="mt-3">
+          <label for="date">Date: </label>
+          <input
+            id="date"
+            class="form-control mt-1"
+            type="date"
+            formControlName="date"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        Close
+      </button>
+      <button
+        type="submit"
+        class="btn btn-outline-primary"
+        [disabled]="!bookForm.valid"
+        class="btn btn-success"
+        (click)="onSubmit()"
+      >
+        Add
+      </button>
+    </div>
+  </form>
 </div>
