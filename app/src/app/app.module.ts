@@ -25,6 +25,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CreateBookComponent } from './components/books/modals/create-book/create-book.component';
 import { FormsModule } from '@angular/forms';
 import { EditBookComponent } from './components/books/modals/edit-book/edit-book.component';
+import { BookDetailsComponent } from './components/books/modals/book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { EditBookComponent } from './components/books/modals/edit-book/edit-book
     NavBarComponent,
     CreateBookComponent,
     EditBookComponent,
+    BookDetailsComponent,
   ],
   imports: [
     HttpClientModule,

@@ -165,4 +165,39 @@ export abstract class notify {
       },
     });
   }
+  static bookDeleted() {
+    this.unLoad();
+    Swal.fire({
+      text: 'The book has been removed!',
+      icon: 'success',
+      position: 'top',
+      buttonsStyling: false,
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+      },
+    });
+  }
+  static deleteBook(callback?: Function) {
+    this.unLoad();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      position: 'top',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, remove it!',
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (callback) {
+          callback();
+        }
+      }
+    });
+  }
 }

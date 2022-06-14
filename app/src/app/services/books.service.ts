@@ -32,4 +32,9 @@ export class BooksService {
       data
     );
   }
+  delete(bookId: string) {
+    return this.http.delete<Book>(
+      `http://localhost:3434/api/v1/auth/books/${bookId}`
+    );
+  }
 }
