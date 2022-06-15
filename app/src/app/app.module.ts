@@ -26,6 +26,7 @@ import { CreateBookComponent } from './components/books/modals/create-book/creat
 import { FormsModule } from '@angular/forms';
 import { EditBookComponent } from './components/books/modals/edit-book/edit-book.component';
 import { BookDetailsComponent } from './components/books/modals/book-details/book-details.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { BookDetailsComponent } from './components/books/modals/book-details/boo
     CreateBookComponent,
     EditBookComponent,
     BookDetailsComponent,
+    FooterComponent,
   ],
   imports: [
     HttpClientModule,

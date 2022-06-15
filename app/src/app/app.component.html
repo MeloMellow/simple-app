@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<body>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer
+    *ngIf="!isNotifyVisible()"
+    class="py-4 bg-white shadow"
+  ></app-footer>
+</body>

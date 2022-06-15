@@ -227,4 +227,7 @@ export abstract class notify {
       },
     });
   }
+  static isNoityVisible(): boolean {
+    return Swal.isVisible();
+  }
 }
