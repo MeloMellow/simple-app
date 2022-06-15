@@ -178,7 +178,7 @@ export abstract class notify {
       },
     });
   }
-  static deleteBook(callback?: Function) {
+  static deleteBook(callback: Function) {
     this.unLoad();
     Swal.fire({
       title: 'Are you sure?',
@@ -194,10 +194,21 @@ export abstract class notify {
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        if (callback) {
-          callback();
-        }
+        callback();
       }
+    });
+  }
+  static message(text: string, title?: string) {
+    this.unLoad();
+    Swal.fire({
+      text,
+      title: title,
+      position: 'top',
+      buttonsStyling: false,
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+      },
     });
   }
 }
