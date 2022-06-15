@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { PokeapiService } from 'src/app/services/pokeapi.service';
 
 @Component({
   selector: 'app-pokeapi',
@@ -6,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokeapi.component.css'],
 })
 export class PokeapiComponent implements OnInit {
-  constructor() {}
+  constructor(private pokeapiService: PokeapiService) {}
+
+  pokemonName = new FormControl('', [Validators.required]);
+
+  onSubmit() {}
 
   ngOnInit(): void {}
 }
