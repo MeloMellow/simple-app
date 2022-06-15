@@ -15,11 +15,16 @@ export class BookDetailsComponent implements OnInit {
 
   constructor() {}
 
-  getBookDateFormatted(date?: Date): string {
+  getBookDateFormattedToView(date?: Date): string {
     if (!date) {
       return '';
     }
-    let dateString = date.toString();
+    let dateString: string;
+    if (date.toString().includes('T')) {
+      dateString = date.toString().split('T')[0];
+    } else {
+      dateString = date.toString().split(' ')[0];
+    }
     const response =
       dateString.split('-')[1] +
       '/' +

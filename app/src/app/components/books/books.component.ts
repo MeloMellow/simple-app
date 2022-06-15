@@ -26,50 +26,7 @@ export class BooksComponent implements OnInit {
     'remove',
   ];
 
-  books: Book[] = [
-    {
-      id: '485fj03432494325j',
-      userId: '43ud98ku395u',
-      title: 'Hydrogen',
-      description: 'some description',
-      date: new Date(),
-    },
-    {
-      id: '485fj094e4325j',
-      userId: '43ud98ku395u',
-      title: 'HCydrog',
-      description: 'some description',
-      date: new Date(),
-    },
-    {
-      id: '485fj0dre94325j',
-      userId: '43ud98ku395u',
-      title: 'Dycsdogen',
-      description: 'some description',
-      date: new Date(),
-    },
-    {
-      id: '485fj0dr94325j',
-      userId: '43ud98ku395u',
-      title: 'Hydr',
-      description: 'some description',
-      date: new Date(),
-    },
-    {
-      id: '485fj0rd3r94325j',
-      userId: '43ud98ku395u',
-      title: 'Hydrogen',
-      description: 'some description',
-      date: new Date(),
-    },
-    {
-      id: '485fj09drwe4325j',
-      userId: '43ud98ku395u',
-      title: 'HGon',
-      description: 'some description',
-      date: new Date(),
-    },
-  ];
+  books: Book[] = [];
 
   dataSource = new MatTableDataSource<Book>(this.books);
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
@@ -80,7 +37,15 @@ export class BooksComponent implements OnInit {
   constructor(
     private changeDetectorRefs: ChangeDetectorRef,
     private booksService: BooksService
-  ) {}
+  ) {
+    const request = this.booksService.get().pipe(share());
+    request.subscribe({
+      next: (booksResponse) => {
+        this.books = booksResponse;
+        this.refreshTable();
+      },
+    });
+  }
 
   onBookToEdit(element: Book) {
     this.bookToEdit = { ...element };

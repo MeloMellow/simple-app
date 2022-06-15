@@ -37,4 +37,9 @@ export class BooksService {
       `http://localhost:3434/api/v1/auth/books/${bookId}`
     );
   }
+  get() {
+    return this.http.get<Array<Book>>(
+      'http://localhost:3434/api/v1/auth/books'
+    );
+  }
 }

@@ -74,8 +74,24 @@ export class EditBookComponent implements OnInit {
         this._book?.description,
         Validators.required
       ),
-      date: new FormControl(this._book?.date, Validators.required),
+      date: new FormControl(
+        this.getBookDateFormattedToEdit(this._book?.date),
+        Validators.required
+      ),
     });
+  }
+
+  getBookDateFormattedToEdit(date?: Date): string {
+    if (!date) {
+      return '';
+    }
+    let dateString: string;
+    if (date.toString().includes('T')) {
+      dateString = date.toString().split('T')[0];
+    } else {
+      dateString = date.toString().split(' ')[0];
+    }
+    return dateString;
   }
 
   ngOnInit(): void {}
