@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import authRoutes from "./routes/user-routes";
 import authMiddleware from "./middlewares/auth";
 import bookRoutes from "./routes/book-routes";
+import affirmationDevRoutes from "./routes/affirmation-dev-routes";
 
 export default function router(app: express.Application) {
   const apiPath = "/api/v1";
@@ -15,4 +16,8 @@ export default function router(app: express.Application) {
   const bookRoute = Router();
   bookRoutes(bookRoute);
   app.use(authPath, bookRoute);
+
+  const affirmationDevRoute = Router();
+  affirmationDevRoutes(affirmationDevRoute);
+  app.use(apiPath, affirmationDevRoute);
 }
