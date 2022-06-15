@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
-import { User } from '../models/user';
 
 export type CreateBookData = {
   title?: string | null;
