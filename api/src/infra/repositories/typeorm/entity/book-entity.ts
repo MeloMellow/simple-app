@@ -12,7 +12,7 @@ export class BookEntity {
   @Column()
   description: string;
 
-  @Column({ type: "timestamp" })
+  @Column({ type: "datetime" })
   date: Date;
 
   @ManyToOne((type) => UserEntity, (user) => user.books) user: UserEntity;

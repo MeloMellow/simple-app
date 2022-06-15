@@ -4,6 +4,7 @@ body {
 
 .card {
   max-width: 385px;
+  min-width: 320px;
   border: none;
   border-radius: 10px;
 

@@ -211,4 +211,18 @@ export abstract class notify {
       },
     });
   }
+  static pokemonNotFound() {
+    this.unLoad();
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      position: 'top',
+      text: 'This pokemon was not found',
+      buttonsStyling: false,
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+      },
+    });
+  }
 }
