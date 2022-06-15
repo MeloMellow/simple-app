@@ -48,8 +48,9 @@ export class ErrorCatchingInterceptor implements HttpInterceptor {
           !this.router.url.endsWith('/signup')
         ) {
           this.userService.logout();
-          this.router.navigateByUrl('/signin');
-          notify.unauthorized();
+          notify.unauthorized(() => {
+            location.reload();
+          });
         } else if (error.status == 401) {
           notify.wrongCredentials();
         }

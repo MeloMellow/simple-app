@@ -28,7 +28,7 @@ export abstract class notify {
     });
     this.isLoading = true;
   }
-  static unauthorized() {
+  static unauthorized(callback: Function) {
     this.unLoad();
     Swal.fire({
       icon: 'error',
@@ -40,6 +40,8 @@ export abstract class notify {
       customClass: {
         confirmButton: 'btn btn-primary',
       },
+    }).then(() => {
+      callback();
     });
   }
   static wrongCredentials() {
