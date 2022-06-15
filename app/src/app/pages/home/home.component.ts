@@ -10,14 +10,17 @@ import { notify } from 'src/app/swal-notification';
 })
 export class HomeComponent implements OnInit {
   constructor(private affimationDevService: AffirmationDevService) {
-    //this.triggerAffimationDevMessage();
+    if (!this.affimationDevService.isMessageAlreadyBeenDisplayedToday()) {
+      this.triggerAffimationDevMessage();
+    }
   }
 
   triggerAffimationDevMessage() {
-    const request = this.affimationDevService.get().pipe(share());
+    const request = this.affimationDevService.getMessage().pipe(share());
     request.subscribe({
       next: (response) => {
         notify.message(response.affirmation, 'Welcome!');
+        this.affimationDevService.setTheDateMessageHasBeenDisplayed(new Date());
       },
     });
   }
