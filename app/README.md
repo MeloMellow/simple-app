@@ -1,6 +1,6 @@
-# App
+# Usage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
+Before proceeding, it is necessary to do some small steps to make the application run.
 
 ## Development server
 
