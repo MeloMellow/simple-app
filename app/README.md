@@ -2,13 +2,15 @@
 
 Before proceeding, it is necessary to do some small steps to make the application run.
 
-## Development server
+## Install npm dependencies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm install` to install all dependencies.
+If there is any conflict when installing packages use the `--force` command
 
-## Code scaffolding
+## Setting environment variables
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Create a file called `.env` where you will have the HOST and the PORT where you will be running the Api.
+
 
 ## Build
 
