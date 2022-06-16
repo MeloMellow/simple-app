@@ -18,11 +18,11 @@ Below are the variables that need to be set in that file:
 ```npm
 PORT=(Your api port)
 JWT_SECRET=(A secret)
-PORT_DB=(You mysql db port)
-HOST_DB=(You mysql db host)
-USER_DB=(You mysql db username)
-PASSWORD_DB=(You mysql db password)
-DB_NAME=(You mysql db name)
+PORT_DB=(Your mysql db port)
+HOST_DB=(Your mysql db host)
+USER_DB=(Your mysql db username)
+PASSWORD_DB=(Your mysql db password)
+DB_NAME=(Your mysql db name)
 ```
 
 ## 4. Running in dev mode
