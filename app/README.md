@@ -5,12 +5,16 @@ Before proceeding, it is necessary to do some small steps to make the applicatio
 ## Install npm dependencies
 
 Run `npm install` to install all dependencies.
-If there is any conflict when installing packages use the `--force` command
+If there is any conflict when installing packages use `npm install --force`
 
 ## Setting environment variables
 
 Create a file called `.env` where you will have the HOST and the PORT where you will be running the Api.
-
+The variables that need to be set in this file are API_HOST and API_PORT, for example:
+```npm
+API_HOST=http://localhost
+API_PORT=3434
+```
 
 ## Build
 
