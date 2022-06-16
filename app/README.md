@@ -17,9 +17,9 @@ API_HOST=http://localhost
 API_PORT=3434
 ```
 
-## Build
+## Running in dev mode
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm start` to start the project in development mode. The project will be running at http://localhost:4200. If you want to change the port or see more advanced configuration, you can consult Angular's own documentation and modify the packge.json as you need.
 
 ## Running unit tests
 
