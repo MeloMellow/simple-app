@@ -27,8 +27,4 @@ DB_NAME=(You mysql db name)
 
 ## 4. Running in dev mode
 
-Run `npm start` to start the project in development mode. The project will be running at http://localhost:4200. If you want to change the port or see more advanced configuration, you can consult Angular's own documentation and modify the packge.json as you need.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `npm run dev` to start the project in development mode. The project will be running at localhost on the port that you set previously(http://localhost:PORT).
