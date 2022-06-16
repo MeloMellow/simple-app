@@ -1,6 +1,7 @@
 # Usage
 
 Before proceeding, it is necessary to do some small steps to make the application run.
+#### Heads up! all steps reported in this document must be done in this folder!
 
 ## Install npm dependencies
 
