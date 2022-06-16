@@ -27,4 +27,4 @@ DB_NAME=(You mysql db name)
 
 ## 4. Running in dev mode
 
-Run `npm run dev` to start the project in development mode. The project will be running at localhost on the port that you set previously(http://localhost:PORT).
+Run `npm run dev` to start the Api in development mode. The Api will be running at localhost on the port that you set previously(http://localhost:PORT).
